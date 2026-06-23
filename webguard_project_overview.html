@@ -1,0 +1,159 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); }
+  .hero { padding: 2rem 0 1.5rem; text-align: center; }
+  .logo { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 0.75rem; }
+  .logo-icon { width: 42px; height: 42px; background: #1a1a2e; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+  .logo-icon i { font-size: 22px; color: #00d4aa; }
+  .logo-name { font-size: 26px; font-weight: 500; color: var(--color-text-primary); letter-spacing: -0.5px; }
+  .logo-name span { color: #00d4aa; }
+  .tagline { font-size: 13px; color: var(--color-text-secondary); margin-top: 4px; }
+  .badge-row { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin: 1rem 0 0; }
+  .badge { font-size: 11px; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+  .badge-green { background: var(--color-background-success); color: var(--color-text-success); }
+  .badge-blue  { background: var(--color-background-info);    color: var(--color-text-info); }
+  .badge-warn  { background: var(--color-background-warning); color: var(--color-text-warning); }
+  .badge-red   { background: var(--color-background-danger);  color: var(--color-text-danger); }
+
+  .section-title { font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: 0.08em; margin: 1.75rem 0 0.75rem; }
+
+  .scan-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 1rem; }
+  .scan-card-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); display: flex; align-items: center; gap: 8px; margin-bottom: 0.5rem; }
+  .scan-card-title i { font-size: 17px; }
+  .scan-card p { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; }
+
+  .feat-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 0.85rem 1rem; }
+  .feat-card i { font-size: 20px; color: var(--color-text-info); margin-bottom: 6px; display: block; }
+  .feat-card .feat-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px; }
+  .feat-card .feat-desc  { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+
+  .stack-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .stack-pill { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; padding: 5px 12px; border-radius: 20px; border: 0.5px solid var(--color-border-secondary); color: var(--color-text-primary); background: var(--color-background-primary); }
+  .stack-pill i { font-size: 14px; }
+
+  .severity-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 0.5rem; }
+  .sev { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; }
+  .sev-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .sev-critical { background: #e24b4a; }
+  .sev-high     { background: #ef9f27; }
+  .sev-medium   { background: #3b8bd4; }
+  .sev-low      { background: #639922; }
+
+  .divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 1.5rem 0; }
+  .wow-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 0.75rem; }
+  .wow-item { display: flex; align-items: flex-start; gap: 8px; }
+  .wow-item i { font-size: 16px; color: var(--color-text-success); margin-top: 1px; flex-shrink: 0; }
+  .wow-item span { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+</style>
+
+<div style="padding: 0 0.25rem 2rem;">
+  <div class="hero">
+    <div class="logo">
+      <div class="logo-icon"><i class="ti ti-shield-check" aria-hidden="true"></i></div>
+      <div>
+        <div class="logo-name">Web<span>Guard</span></div>
+        <div class="tagline">Website Vulnerability Scanner</div>
+      </div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-red">SQL Injection</span>
+      <span class="badge badge-warn">XSS Detection</span>
+      <span class="badge badge-blue">Port Scanning</span>
+      <span class="badge badge-green">SSL Analysis</span>
+      <span class="badge badge-warn">Header Audit</span>
+      <span class="badge badge-blue">WHOIS / DNS</span>
+    </div>
+  </div>
+
+  <p class="section-title">What it scans</p>
+  <div class="grid2">
+    <div class="scan-card">
+      <div class="scan-card-title"><i class="ti ti-database-off" style="color:#e24b4a" aria-hidden="true"></i> SQL Injection</div>
+      <p>Injects test payloads into URL parameters and form inputs to detect backend database vulnerabilities before real attackers do.</p>
+    </div>
+    <div class="scan-card">
+      <div class="scan-card-title"><i class="ti ti-code" style="color:#ef9f27" aria-hidden="true"></i> XSS (Cross-Site Scripting)</div>
+      <p>Tests forms and query params with XSS payloads to find reflected/stored script injection vulnerabilities.</p>
+    </div>
+    <div class="scan-card">
+      <div class="scan-card-title"><i class="ti ti-lock" style="color:#3b8bd4" aria-hidden="true"></i> SSL / TLS Audit</div>
+      <p>Checks certificate validity, expiry dates, and weak cipher suites. Flags expired or self-signed certificates immediately.</p>
+    </div>
+    <div class="scan-card">
+      <div class="scan-card-title"><i class="ti ti-layout-navbar" style="color:#639922" aria-hidden="true"></i> HTTP Security Headers</div>
+      <p>Detects missing headers like CSP, HSTS, X-Frame-Options, X-XSS-Protection, and Referrer-Policy.</p>
+    </div>
+    <div class="scan-card">
+      <div class="scan-card-title"><i class="ti ti-router" style="color:#9966cc" aria-hidden="true"></i> Open Port Detection</div>
+      <p>Scans common ports (21, 22, 80, 443, 3306, etc.) to find exposed services that shouldn't be publicly accessible.</p>
+    </div>
+    <div class="scan-card">
+      <div class="scan-card-title"><i class="ti ti-world" style="color:#1d9e75" aria-hidden="true"></i> WHOIS / DNS Info</div>
+      <p>Fetches domain age, registrar, DNS records (A, MX, TXT), and flags suspiciously new domains or misconfigs.</p>
+    </div>
+  </div>
+
+  <p class="section-title">Severity rating system</p>
+  <div class="scan-card">
+    <p>Every vulnerability found is classified and scored. The report groups findings by severity so you know what to fix first.</p>
+    <div class="severity-row">
+      <div class="sev"><div class="sev-dot sev-critical"></div><span style="color:var(--color-text-danger);font-size:12px;font-weight:500">Critical</span></div>
+      <div class="sev"><div class="sev-dot sev-high"></div><span style="color:var(--color-text-warning);font-size:12px;font-weight:500">High</span></div>
+      <div class="sev"><div class="sev-dot sev-medium"></div><span style="color:var(--color-text-info);font-size:12px;font-weight:500">Medium</span></div>
+      <div class="sev"><div class="sev-dot sev-low"></div><span style="color:var(--color-text-success);font-size:12px;font-weight:500">Low</span></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-title">Wow factor features</p>
+  <div class="wow-row">
+    <div class="wow-item"><i class="ti ti-check" aria-hidden="true"></i><span>Real-time scan progress — step-by-step live updates via WebSockets</span></div>
+    <div class="wow-item"><i class="ti ti-check" aria-hidden="true"></i><span>Downloadable PDF vulnerability report for every scan</span></div>
+    <div class="wow-item"><i class="ti ti-check" aria-hidden="true"></i><span>Visual dashboard — pie/bar chart of vulnerability breakdown</span></div>
+    <div class="wow-item"><i class="ti ti-check" aria-hidden="true"></i><span>Dark, pro-grade UI — no student project look</span></div>
+    <div class="wow-item"><i class="ti ti-check" aria-hidden="true"></i><span>CMS detection — WordPress, Joomla + known CVEs</span></div>
+    <div class="wow-item"><i class="ti ti-check" aria-hidden="true"></i><span>Broken link crawler across the target website</span></div>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-title">Tech stack</p>
+  <div class="stack-row">
+    <div class="stack-pill"><i class="ti ti-brand-react" aria-hidden="true"></i> React + Vite</div>
+    <div class="stack-pill"><i class="ti ti-palette" aria-hidden="true"></i> Tailwind CSS</div>
+    <div class="stack-pill"><i class="ti ti-brand-python" aria-hidden="true"></i> Python</div>
+    <div class="stack-pill"><i class="ti ti-bolt" aria-hidden="true"></i> FastAPI</div>
+    <div class="stack-pill"><i class="ti ti-database" aria-hidden="true"></i> MongoDB</div>
+    <div class="stack-pill"><i class="ti ti-arrows-exchange" aria-hidden="true"></i> WebSockets</div>
+    <div class="stack-pill"><i class="ti ti-file-type-pdf" aria-hidden="true"></i> PDF Reports</div>
+  </div>
+
+  <hr class="divider">
+
+  <p class="section-title">How it works — user flow</p>
+  <div class="feat-card" style="background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;">
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--color-background-info);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--color-text-info);flex-shrink:0;">1</div>
+        <span style="font-size:13px;color:var(--color-text-secondary);">User enters any website URL (e.g. <code style="font-size:12px;">https://example.com</code>)</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--color-background-info);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--color-text-info);flex-shrink:0;">2</div>
+        <span style="font-size:13px;color:var(--color-text-secondary);">WebGuard runs all 7+ scanners in parallel — live progress shown</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--color-background-info);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--color-text-info);flex-shrink:0;">3</div>
+        <span style="font-size:13px;color:var(--color-text-secondary);">Results displayed with severity scores, charts, and fix suggestions</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:28px;height:28px;border-radius:50%;background:var(--color-background-info);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--color-text-info);flex-shrink:0;">4</div>
+        <span style="font-size:13px;color:var(--color-text-secondary);">User downloads a full PDF vulnerability report</span>
+      </div>
+    </div>
+  </div>
+</div>
