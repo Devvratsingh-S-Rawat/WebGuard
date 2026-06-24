@@ -79,7 +79,10 @@ function App() {
     setScannedUrl(url)
     setCompareMode(false)
 
-    const ws = new WebSocket("ws://localhost:5000/api/ws/scan")
+    const wsUrl = import.meta.env.VITE_API_URL
+      ? import.meta.env.VITE_API_URL.replace("https://", "wss://").replace("http://", "ws://")
+      : "ws://localhost:5000"
+    const ws = new WebSocket(`${wsUrl}/api/ws/scan`)
 
     ws.onopen = () => {
       ws.send(JSON.stringify({ url }))
