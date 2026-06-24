@@ -89,7 +89,8 @@ function ScannerBlock({ result, index }) {
 
 function ScanResults({ results, url, onReset }) {
   const handleDownload = async () => {
-    const res = await fetch("/api/scan/report", {
+    const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000"
+    const res = await fetch(`${apiUrl}/api/scan/report`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ url }),
