@@ -140,4 +140,4 @@ Do not scan websites without permission.
 
 ---
 
-**Built by [Devvrat Singh Rawat](https://github.com/Devvratsingh-S-Rawat)**
+**Built by [Devvratsingh S. Rawat](https://github.com/Devvratsingh-S-Rawat)**
